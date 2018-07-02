@@ -10,10 +10,12 @@
 <div id="header">head tavi</div>
 <div id="main">
   <form id="ingredients">
-    <div class="ingredient">
-      <input>
-      <button>+</button>
-    </div>
+      <?php for ($i = 0; $i < 20; $i++) { ?>
+        <div class="ingredient">
+          <input>
+          <button>+</button>
+        </div>
+      <?php } ?>
   </form>
 </div>
 <div id="footer">foot feet</div>

@@ -5,7 +5,7 @@ html {
 body {
   height: 100%;
   display: grid;
-  grid-template-areas: 'header header header header header' '. . content . .' 'footer footer footer footer footer';
+  grid-template-areas: 'header header header header header' 'content content content content content' 'footer footer footer footer footer';
   grid-row-gap: 15px;
   grid-template-rows: 5% 75% 5%;
 }
@@ -21,8 +21,8 @@ body > * {
 }
 
 #main {
+  display: grid;
   grid-area: content;
-  padding-top: 30%;
   overflow-y: scroll;
 }
 
@@ -32,7 +32,8 @@ body > * {
 }
 
 #ingredients {
-
+  grid-column-start: 2;
+  grid-column-end: 3;
 }
 
 #ingredients > * {
