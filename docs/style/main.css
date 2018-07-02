@@ -22,9 +22,19 @@ body > * {
 
 #main {
   grid-area: content;
+  padding-top: 30%;
+  overflow-y: scroll;
 }
 
 #footer {
   grid-area: footer;
   border-top: 1px solid black;
+}
+
+#ingredients {
+
+}
+
+#ingredients > * {
+  display: block;
 }
