@@ -1,4 +1,30 @@
+html {
+  height: 100%;
+}
+
 body {
+  height: 100%;
   display: grid;
-  grid-template-areas: 'header header header header header' '. . . . .' '. . content . .' '. . . . .' 'footer footer footer footer';
+  grid-template-areas: 'header header header header header' '. . content . .' 'footer footer footer footer footer';
+  grid-row-gap: 15px;
+  grid-template-rows: 5% 75% 5%;
+}
+
+body > * {
+  padding: 10px;
+}
+
+#header {
+  grid-area: header;
+  display: inline-grid;
+  border-bottom: 1px solid black;
+}
+
+#main {
+  grid-area: content;
+}
+
+#footer {
+  grid-area: footer;
+  border-top: 1px solid black;
 }
