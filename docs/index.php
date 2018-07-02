@@ -1,3 +1,7 @@
+<!--
+  A script to easily render the main html file.
+  Usage: (in your command line) php index.php > index.html
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +14,7 @@
 <div id="header">head tavi</div>
 <div id="main">
   <form id="ingredients">
-      <?php for ($i = 0; $i < 20; $i++) { ?>
+      <?php for ($i = 0; $i < 5; $i++) { ?>
         <div class="ingredient">
           <input>
           <button>+</button>

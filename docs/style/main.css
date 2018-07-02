@@ -32,8 +32,12 @@ body > * {
 }
 
 #ingredients {
+
   grid-column-start: 2;
   grid-column-end: 3;
+}
+
+.ingredient > * {
 }
 
 #ingredients > * {
