@@ -16,7 +16,7 @@
   <form id="ingredients">
       <?php for ($i = 0; $i < 5; $i++) { ?>
         <div class="ingredient">
-          <input>
+          <input autocomplete="off">
           <button>+</button>
         </div>
       <?php } ?>
