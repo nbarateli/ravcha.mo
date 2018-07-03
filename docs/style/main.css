@@ -1,7 +1,6 @@
 html {
   height: 100%;
 }
-
 body {
   height: 100%;
   display: grid;
@@ -9,37 +8,36 @@ body {
   grid-row-gap: 15px;
   grid-template-rows: 5% 75% 5%;
 }
-
 body > * {
   padding: 10px;
 }
-
 #header {
   grid-area: header;
   display: inline-grid;
   border-bottom: 1px solid black;
 }
-
 #main {
   display: grid;
+  grid-template-columns: auto auto auto;
   grid-area: content;
   overflow-y: scroll;
 }
-
 #footer {
   grid-area: footer;
   border-top: 1px solid black;
 }
-
 #ingredients {
-
   grid-column-start: 2;
   grid-column-end: 3;
 }
 
-.ingredient > * {
+#ingredients input[type="number"] {
+  width: 55px;
 }
-
 #ingredients > * {
   display: block;
+}
+
+.ingredient {
+  width: 80%;
 }

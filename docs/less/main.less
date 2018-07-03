@@ -1,4 +1,4 @@
-
+@number_input_width: 55px;
 html {
   height: 100%;
 }
@@ -23,6 +23,7 @@ body > * {
 
 #main {
   display: grid;
+  grid-template-columns: auto auto auto;
   grid-area: content;
   overflow-y: scroll;
 }
@@ -33,9 +34,12 @@ body > * {
 }
 
 #ingredients {
-
   grid-column-start: 2;
   grid-column-end: 3;
+}
+
+#ingredients input[type="number"] {
+  width: @number_input_width;
 }
 
 .ingredient > * {
@@ -43,4 +47,8 @@ body > * {
 
 #ingredients > * {
   display: block;
+}
+
+.ingredient {
+  width: 80%;
 }

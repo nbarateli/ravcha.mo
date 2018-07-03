@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" type="text/css" href="docs/less/main.less"/>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style/reset.css">
   <link rel="stylesheet" href="style/main.css">
@@ -16,10 +17,22 @@
   <form id="ingredients">
       <?php for ($i = 0; $i < 5; $i++) { ?>
         <div class="ingredient">
-          <input autocomplete="off">
-          <button>+</button>
+          <label>
+            <small>დასახელება</small>
+            <input autocomplete="off">
+          </label>
+          <label>რაოდენობა
+            <input type="number">
+          </label>
+          <select>
+            <option>გრამი</option>
+            <option>კგ.</option>
+            <option>ცალი</option>
+          </select>
         </div>
       <?php } ?>
+    <button id="add_field">+</button>
+
   </form>
 </div>
 <div id="footer">foot feet</div>
