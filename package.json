@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/nbarateli/ravcha.mo/issues"
   },
-  "homepage": "https://github.com/nbarateli/ravcha.mo#readme"
+  "homepage": "https://github.com/nbarateli/ravcha.mo#readme",
+  "dependencies": {
+    "less": "^3.0.4"
+  }
 }
