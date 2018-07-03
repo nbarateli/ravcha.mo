@@ -36,5 +36,6 @@
   </form>
 </div>
 <div id="footer">foot feet</div>
+<script src="script/main.js"></script>
 </body>
 </html>
