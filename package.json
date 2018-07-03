@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/nbarateli/ravcha.mo#readme",
   "dependencies": {
+    "gulp": "^3.9.1",
     "less": "^3.0.4"
   }
 }

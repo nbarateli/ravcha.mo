@@ -15,24 +15,26 @@
 <div id="header">head tavi</div>
 <div id="main">
   <form id="ingredients">
-      <?php for ($i = 0; $i < 5; $i++) { ?>
-        <div class="ingredient">
-          <label>
-            <small>დასახელება</small>
-            <input autocomplete="off">
-          </label>
-          <label>რაოდენობა
-            <input type="number">
-          </label>
-          <select>
-            <option>გრამი</option>
-            <option>კგ.</option>
-            <option>ცალი</option>
-          </select>
-        </div>
-      <?php } ?>
+    <div id="ingredient-list">
+        <?php for ($i = 0; $i < 5; $i++) { ?>
+          <div class="ingredient">
+            <label>
+              <small>დასახელება</small>
+              <input name="ingredient_name" autocomplete="off">
+            </label>
+            <label>რაოდენობა
+              <input name="ingredient_quantity" type="number">
+            </label>
+            <select name="quantity_type">
+              <option>გრამი</option>
+              <option>კგ.</option>
+              <option>ცალი</option>
+            </select>
+          </div>
+        <?php } ?>
+    </div>
     <button id="add_field">+</button>
-
+    <input type="submit" value="ძებნა">
   </form>
 </div>
 <div id="footer">foot feet</div>
