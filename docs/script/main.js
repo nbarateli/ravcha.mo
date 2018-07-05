@@ -2,7 +2,7 @@ let list = [];
 var awesomes = [];
 const FIELD_MARKUP = "<label>\n" +
     "                <small>დასახელება</small>\n" +
-    "                <input class=\"ingredient-name\" name=\"ingredient_name\" data-id=-1 autocomplete=\"off\">\n" +
+    "                <input class=\"ingredient-name \" name=\"ingredient_name\" data-id=-1 autocomplete=\"off\">\n" +
     "              </label>\n" +
     "              <label>რაოდენობა\n" +
     "                <input name=\"ingredient_quantity\" type=\"number\" value=\"0\">\n" +
@@ -13,6 +13,14 @@ const FIELD_MARKUP = "<label>\n" +
     "                <option>ცალი</option>\n" +
     "              </select>"
 
+function addAwesome(input) {
+    awesomes.push(new Awesomplete(input, {
+            list: list,
+            data: parseIngredient
+        })
+    );
+}
+
 function addField(e) {
     e.preventDefault();
     let ingredients = document.getElementById('ingredient-list')
@@ -21,11 +29,7 @@ function addField(e) {
     ingredient.innerHTML = FIELD_MARKUP;
     let input = ingredient.getElementsByClassName('ingredient-name')[0];
     ingredients.appendChild(ingredient);
-    awesomes.push(new Awesomplete(input, {
-            list: list,
-            data: parseIngredient
-        })
-    );
+    addAwesome(input)
 }
 
 function toList(data) {
@@ -44,12 +48,7 @@ function parseIngredient(item) {
 function autoComplete(list) {
     let inputs = document.getElementsByClassName('ingredient-name');
     for (let i = 0; i < inputs.length; i++) {
-        awesomes.push(new Awesomplete(inputs[i], {
-                list: list,
-            data: parseIngredient
-            })
-        );
-        console.log(i)
+        addAwesome(inputs[i])
     }
 
 }

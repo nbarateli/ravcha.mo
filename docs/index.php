@@ -36,10 +36,12 @@
             </div>
           <?php } ?>
       </div>
+
       <button id="add_field">+</button>
       <input type="submit" value="ძებნა">
     </form>
     <div id="results">
+      <input id="myinput" data-list="CSS, JavaScript, HTML, SVG, ARIA, MathML" class="dropdown-input"/>
 
     </div>
   </div>
