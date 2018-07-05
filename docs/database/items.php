@@ -18,6 +18,11 @@ function addItem(&$items, $name)
 addItem($items, "ხახვი");
 addItem($items, "ნიორი");
 addItem($items, "წიწაკა, მწვანე");
+addItem($items, "კარტოფილი");
+addItem($items, "წიწაკა, წითელი");
+addItem($items, "მარილი");
+addItem($items, "წიწაკა შავი, დაფქვილი");
+
 
 
 echo json_encode($items, JSON_UNESCAPED_UNICODE);
