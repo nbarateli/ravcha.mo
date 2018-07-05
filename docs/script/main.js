@@ -32,15 +32,18 @@ function toList(data) {
 function autoComplete(list) {
     let inputs = document.getElementsByClassName('ingredient-name');
     console.log(list)
-    for (let i = 0; i < inputs.length; i++)
+    for (let i = 0; i < inputs.length; i++) {
         awesomes.push(new Awesomplete(inputs[i], {
-            list: list,
-            data: (item, inp) => {
-                inputs[i].setAttribute('data-id', item.id);
-                return ({label: item.id, value: item.name})
-            }
+                list: list,
+                data: (item, inp) => {
+                    inputs[i].setAttribute('data-id', item.id);
+                    return ({label: item.name, value: item.name})
+                }
 
-        }));
+            })
+        );
+        console.log(i)
+    }
 
 }
 
