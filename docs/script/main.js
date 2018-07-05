@@ -1,17 +1,17 @@
 let list = [];
 var awesomes = [];
-const FIELD_MARKUP = "<label>\n" +
-    "            <small>დასახელება</small>\n" +
-    "            <input autocomplete=\"off\">\n" +
-    "          </label>\n" +
-    "          <label>რაოდენობა\n" +
-    "            <input type=\"number\">\n" +
-    "          </label>\n" +
-    "          <select>\n" +
-    "            <option>გრამი</option>\n" +
-    "            <option>კგ.</option>\n" +
-    "            <option>ცალი</option>\n" +
-    "          </select>"
+const FIELD_MARKUP = " <label>\n" +
+    "                <small>დასახელება</small>\n" +
+    "                <input class=\"ingredient-name\" name=\"ingredient_name\" data-id=-1 autocomplete=\"off\">\n" +
+    "              </label>\n" +
+    "              <label>რაოდენობა\n" +
+    "                <input name=\"ingredient_quantity\" type=\"number\">\n" +
+    "              </label>\n" +
+    "              <select name=\"quantity_type\">\n" +
+    "                <option>გრამი</option>\n" +
+    "                <option>კგ.</option>\n" +
+    "                <option>ცალი</option>\n" +
+    "              </select>"
 
 function addField(e) {
     e.preventDefault();
@@ -19,7 +19,13 @@ function addField(e) {
     let ingredient = document.createElement('div');
     ingredient.classList.add('ingredient');
     ingredient.innerHTML = FIELD_MARKUP;
+    let input = ingredient.getElementsByClassName('ingredient-name')[0];
     ingredients.appendChild(ingredient);
+    awesomes.push(new Awesomplete(input, {
+            list: list,
+            data: parseIngredient
+        })
+    );
 }
 
 function toList(data) {
@@ -29,17 +35,18 @@ function toList(data) {
     return result;
 }
 
+function parseIngredient(item) {
+
+    this.input.setAttribute('data-id', item.id);
+    return ({label: item.name, value: item.name})
+}
+
 function autoComplete(list) {
     let inputs = document.getElementsByClassName('ingredient-name');
-    console.log(list)
     for (let i = 0; i < inputs.length; i++) {
         awesomes.push(new Awesomplete(inputs[i], {
                 list: list,
-                data: (item, inp) => {
-                    inputs[i].setAttribute('data-id', item.id);
-                    return ({label: item.name, value: item.name})
-                }
-
+            data: parseIngredient
             })
         );
         console.log(i)
@@ -51,8 +58,8 @@ function ready() {
     console.log('aa')
     document.getElementById('add_field').addEventListener('click', addField)
     ajax('database/items.json', data => {
-
-        autoComplete(JSON.parse(data));
+        list = JSON.parse(data);
+        autoComplete(list);
     })
 
 }
