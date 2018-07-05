@@ -1,17 +1,9 @@
 let list = [];
 var awesomes = [];
-const FIELD_MARKUP = "<label>\n" +
-    "                <small>დასახელება</small>\n" +
-    "                <input class=\"ingredient-name \" name=\"ingredient_name\" data-id=-1 autocomplete=\"off\">\n" +
-    "              </label>\n" +
-    "              <label>რაოდენობა\n" +
-    "                <input name=\"ingredient_quantity\" type=\"number\" value=\"0\">\n" +
-    "              </label>\n" +
-    "              <select name=\"quantity_type\">\n" +
-    "                <option>გრამი</option>\n" +
-    "                <option>კგ.</option>\n" +
-    "                <option>ცალი</option>\n" +
-    "              </select>"
+const FIELD_MARKUP = "<div class=\"ingredient\">\n" +
+    "              <input class=\"ingredient-name\" placeholder=\"ინგრედიენტის დასახელება\" name=\"ingredient_name\" data-id=-1\n" +
+    "                     autocomplete=\"off\">\n" +
+    "            </div>"
 
 function addAwesome(input) {
     awesomes.push(new Awesomplete(input, {
@@ -53,14 +45,17 @@ function autoComplete(list) {
 
 }
 
+function submit(e) {
+    e.preventDefault();
+}
+
 function ready() {
-    console.log('aa')
     document.getElementById('add_field').addEventListener('click', addField)
     ajax('database/items.json', data => {
         list = JSON.parse(data);
         autoComplete(list);
     })
-
+    document.getElementById('ingredients').addEventListener('submit', submit);
 }
 
 
@@ -83,15 +78,6 @@ function ajax(url, parse) {
     }
     xmlHttp.open("get", url);
     xmlHttp.send();
-}
-
-function source(term, suggest) {
-    term = term.toLowerCase();
-    var choices = ['ActionScript', 'AppleScript', 'Asp'];
-    var matches = [];
-    for (i = 0; i < choices.length; i++)
-        if (~choices[i].toLowerCase().indexOf(term)) matches.push(choices[i]);
-    suggest(matches);
 }
 
 

@@ -41,7 +41,7 @@ body > * {
   display: grid;
   grid-template-columns: 10% auto 10%;
   grid-area: content;
-  //overflow: hidden;
+  overflow-y: scroll;
 }
 
 #footer {
@@ -49,10 +49,6 @@ body > * {
   background: @dark;
   color: @text-dark;
   border-top: 1px solid black;
-}
-
-#ingredients {
-
 }
 
 #ingredients .ingredient-name, #ingredients input[type=number], #ingredients select,
@@ -63,6 +59,15 @@ body > * {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+}
+
+.ingredient-name, .awesomplete {
+  width: 100%;
+}
+
+#ingredients {
+  grid-area: ingredients;
+  //height: 80%;
 }
 
 #ingredients button, #ingredients input[type=submit] {
@@ -92,24 +97,21 @@ body > * {
   display: block;
 }
 
-.ingredient {
-  width: 80%;
-}
-
 #container {
   display: grid;
   grid-column-start: 2;
   grid-column-end: 3;
-  overflow: hidden;
+  grid-template-areas: 'ingredients' 'results';
+  grid-template-rows: 45% 50%;
+  overflow-y: scroll;
 }
 
 #container > * {
   margin-bottom: 25px;
-
 }
 
 #results {
-
+  grid-area: results;
   overflow-y: auto;
 }
 
@@ -140,10 +142,11 @@ body > * {
   border-right: 1px solid white;
 }
 
-*::-webkit-scrollbar {
-  opacity: 80%;
+::-webkit-scrollbar {
+  display: none;
 }
 
 #ingredient-list {
-  overflow-y: auto;
+  height: 70%;
+  overflow-y: scroll;
 }

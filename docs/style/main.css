@@ -25,6 +25,7 @@ body > * {
   display: grid;
   grid-template-columns: 10% auto 10%;
   grid-area: content;
+  overflow-y: scroll;
 }
 #footer {
   grid-area: footer;
@@ -43,6 +44,15 @@ body > * {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+}
+
+.ingredient-name,
+.awesomplete {
+  width: 100%;
+}
+
+#ingredients {
+  grid-area: ingredients;
 }
 #ingredients button,
 #ingredients input[type=submit] {
@@ -65,19 +75,19 @@ body > * {
 #ingredients > * {
   display: block;
 }
-.ingredient {
-  width: 80%;
-}
 #container {
   display: grid;
   grid-column-start: 2;
   grid-column-end: 3;
-  overflow: hidden;
+  grid-template-areas: 'ingredients' 'results';
+  grid-template-rows: 45% 50%;
+  overflow-y: scroll;
 }
 #container > * {
   margin-bottom: 25px;
 }
 #results {
+  grid-area: results;
   overflow-y: auto;
 }
 .result {
@@ -88,27 +98,25 @@ body > * {
   cursor: pointer;
   border: 1px black solid;
 }
-
 .result > * {
   vertical-align: middle;
 }
-
 .meal-image {
   height: 45px;
 }
-
 .result:hover {
   background: #004d40;
 }
-
 .meal-name {
   padding-right: 10px;
   margin-right: 10px;
   border-right: 1px solid white;
 }
-*::-webkit-scrollbar {
-  opacity: 80%;
+
+::-webkit-scrollbar {
+  display: none;
 }
 #ingredient-list {
-  overflow-y: auto;
+  height: 70%;
+  overflow-y: scroll;
 }
