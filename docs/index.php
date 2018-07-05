@@ -24,7 +24,7 @@
                 <input class="ingredient-name" name="ingredient_name" data-id=-1 autocomplete="off">
               </label>
               <label>რაოდენობა
-                <input name="ingredient_quantity" type="number">
+                <input name="ingredient_quantity" type="number" value="0">
               </label>
               <select name="quantity_type">
                 <option>გრამი</option>

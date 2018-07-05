@@ -1,11 +1,11 @@
 let list = [];
 var awesomes = [];
-const FIELD_MARKUP = " <label>\n" +
+const FIELD_MARKUP = "<label>\n" +
     "                <small>დასახელება</small>\n" +
     "                <input class=\"ingredient-name\" name=\"ingredient_name\" data-id=-1 autocomplete=\"off\">\n" +
     "              </label>\n" +
     "              <label>რაოდენობა\n" +
-    "                <input name=\"ingredient_quantity\" type=\"number\">\n" +
+    "                <input name=\"ingredient_quantity\" type=\"number\" value=\"0\">\n" +
     "              </label>\n" +
     "              <select name=\"quantity_type\">\n" +
     "                <option>გრამი</option>\n" +
