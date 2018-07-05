@@ -2,6 +2,8 @@
 @primary: #004d40;
 @light: #39796b;
 @dark: #00251a;
+@button-color: #005f63;
+
 @text-dark: white;
 @text-light: black;
 @primary-font: Segoe UI;
@@ -48,6 +50,32 @@ body > * {
 
 #ingredients {
 
+}
+
+#ingredients .ingredient-name, #ingredients input[type=number], #ingredients select,
+#ingredients button, #ingredients input[type=submit] {
+  padding: 3px 5px;
+  margin: 4px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#ingredients button, #ingredients input[type=submit] {
+  background-color: @button-color;
+  padding: 4.5px 7.5px;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#ingredients button:hover, #ingredients input[type=submit]:hover {
+  background-color: @primary;
+}
+
+#ingredients input[type=submit] {
+  display: block;
 }
 
 #ingredients input[type="number"] {
