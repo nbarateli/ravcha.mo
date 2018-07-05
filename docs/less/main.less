@@ -67,7 +67,9 @@ body > * {
 
 #ingredients {
   grid-area: ingredients;
-  //height: 80%;
+
+  margin-bottom: 25px;
+
 }
 
 #ingredients button, #ingredients input[type=submit] {
@@ -102,12 +104,8 @@ body > * {
   grid-column-start: 2;
   grid-column-end: 3;
   grid-template-areas: 'ingredients' 'results';
-  grid-template-rows: 45% 50%;
+  grid-template-rows: 45% auto;
   overflow-y: scroll;
-}
-
-#container > * {
-  margin-bottom: 25px;
 }
 
 #results {
@@ -149,4 +147,5 @@ body > * {
 #ingredient-list {
   height: 70%;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
