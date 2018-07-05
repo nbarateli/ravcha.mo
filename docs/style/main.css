@@ -41,6 +41,7 @@ body > * {
 .ingredient {
   width: 80%;
 }
+
 #container {
   display: grid;
   grid-column-start: 2;
