@@ -6,8 +6,8 @@ body {
   height: 100%;
   display: grid;
   grid-template-areas: 'header header header header header' 'content content content content content' 'footer footer footer footer footer';
-  grid-row-gap: 15px;
-  grid-template-rows: 5% 87% 5%;
+  grid-row-gap: 1%;
+  grid-template-rows: 5% 88% 5%;
   background: #39796b;
 }
 body > * {
@@ -41,9 +41,11 @@ body > * {
 .ingredient {
   width: 80%;
 }
-
 #container {
-  display: grid;
+  display: flow;
   grid-column-start: 2;
   grid-column-end: 3;
+}
+#container > * {
+  margin-bottom: 25px;
 }

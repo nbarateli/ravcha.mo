@@ -5,8 +5,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" type="text/css" href="docs/less/main.less"/>
-  <link rel="stylesheet" type="text/css" href="docs/less/main.less"/>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style/reset.css">
   <link rel="stylesheet" href="style/main.css">
@@ -38,9 +36,14 @@
       <button id="add_field">+</button>
       <input type="submit" value="ძებნა">
     </form>
+    <div id="results">
+      magari sajmeliii
+    </div>
   </div>
 </div>
-<div id="footer">foot feet</div>
+<div id="footer"></div>
+
+
 <script src="script/main.js"></script>
 </body>
 </html>
