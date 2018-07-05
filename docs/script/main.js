@@ -82,7 +82,7 @@ function ajax(url, parse) {
             if (parse instanceof Function) parse(xmlHttp.responseText)
         }
     }
-    xmlHttp.open("post", url);
+    xmlHttp.open("get", url);
     xmlHttp.send();
 }
 
