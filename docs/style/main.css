@@ -8,6 +8,7 @@ body {
   grid-template-areas: 'header header header header header' 'content content content content content' 'footer footer footer footer footer';
   grid-row-gap: 1%;
   grid-template-rows: 5% 88% 5%;
+  color: white;
   background: #39796b;
 }
 body > * {
@@ -32,7 +33,6 @@ body > * {
   color: white;
   border-top: 1px solid black;
 }
-
 #ingredients .ingredient-name,
 #ingredients input[type=number],
 #ingredients select,
@@ -45,7 +45,6 @@ body > * {
   border-radius: 4px;
   box-sizing: border-box;
 }
-
 #ingredients button,
 #ingredients input[type=submit] {
   background-color: #005f63;
@@ -54,12 +53,10 @@ body > * {
   border: none;
   cursor: pointer;
 }
-
 #ingredients button:hover,
 #ingredients input[type=submit]:hover {
   background-color: #004d40;
 }
-
 #ingredients input[type=submit] {
   display: block;
 }
