@@ -1,12 +1,14 @@
 html {
   height: 100%;
+  font-family: Segoe UI;
 }
 body {
   height: 100%;
   display: grid;
   grid-template-areas: 'header header header header header' 'content content content content content' 'footer footer footer footer footer';
   grid-row-gap: 15px;
-  grid-template-rows: 5% 75% 5%;
+  grid-template-rows: 5% 87% 5%;
+  background: #39796b;
 }
 body > * {
   padding: 10px;
@@ -14,6 +16,8 @@ body > * {
 #header {
   grid-area: header;
   display: inline-grid;
+  background: #004d40;
+  color: white;
   border-bottom: 1px solid black;
 }
 #main {
@@ -24,20 +28,21 @@ body > * {
 }
 #footer {
   grid-area: footer;
+  background: #00251a;
+  color: white;
   border-top: 1px solid black;
 }
-#ingredients {
-  grid-column-start: 2;
-  grid-column-end: 3;
-}
-
 #ingredients input[type="number"] {
   width: 55px;
 }
 #ingredients > * {
   display: block;
 }
-
 .ingredient {
   width: 80%;
+}
+#container {
+  display: grid;
+  grid-column-start: 2;
+  grid-column-end: 3;
 }
