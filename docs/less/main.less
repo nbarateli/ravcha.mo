@@ -37,9 +37,9 @@ body > * {
 
 #main {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 10% auto 10%;
   grid-area: content;
-  overflow-y: scroll;
+  //overflow: hidden;
 }
 
 #footer {
@@ -95,12 +95,36 @@ body > * {
 }
 
 #container {
-  display: flow;
+  display: grid;
   grid-column-start: 2;
   grid-column-end: 3;
+  overflow: hidden;
 }
 
 #container > * {
   margin-bottom: 25px;
 
+}
+
+#results {
+
+  overflow-y: auto;
+}
+
+.result {
+
+  position: relative;
+  display: flow;
+  padding: 10px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  border: 1px black solid;
+}
+
+*::-webkit-scrollbar {
+  opacity: 80%;
+}
+
+#ingredient-list {
+  overflow-y: auto;
 }

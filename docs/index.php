@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" type="text/css" href="docs/less/main.less"/>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=0.8">
   <link rel="stylesheet" href="style/reset.css">
@@ -41,9 +42,15 @@
       <input type="submit" value="ძებნა">
     </form>
     <div id="results">
-      <input id="myinput" data-list="CSS, JavaScript, HTML, SVG, ARIA, MathML" class="dropdown-input"/>
-
+        <?php for ($i = 0; $i < 20; $i++) { ?>
+          <div class="result">
+            <img src="favicon.png">
+            <span>ჩაქაფული სოკოთი</span> |
+            <span>საჭირო ინგრედიენტთა რაოდენობა: 5</span>
+          </div>
+        <?php } ?>
     </div>
+
   </div>
 </div>
 <div id="footer"></div>
