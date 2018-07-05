@@ -33,7 +33,14 @@ function autoComplete(list) {
     let inputs = document.getElementsByClassName('ingredient-name');
     console.log(list)
     for (let i = 0; i < inputs.length; i++)
-        awesomes.push(new Awesomplete(inputs[i], {list: list}));
+        awesomes.push(new Awesomplete(inputs[i], {
+            list: list,
+            data: (item, inp) => {
+                inputs[i].setAttribute('data-id', item.id);
+                return ({label: item.id, value: item.name})
+            }
+
+        }));
 
 }
 
@@ -41,8 +48,8 @@ function ready() {
     console.log('aa')
     document.getElementById('add_field').addEventListener('click', addField)
     ajax('database/items.json', data => {
-        list = toList(data);
-        autoComplete(list);
+
+        autoComplete(JSON.parse(data));
     })
 
 }

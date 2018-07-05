@@ -21,7 +21,7 @@
             <div class="ingredient">
               <label>
                 <small>დასახელება</small>
-                <input class="ingredient-name" name="ingredient_name" autocomplete="off">
+                <input class="ingredient-name" name="ingredient_name" data-id=-1 autocomplete="off">
               </label>
               <label>რაოდენობა
                 <input name="ingredient_quantity" type="number">
