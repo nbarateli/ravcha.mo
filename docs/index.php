@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="style/reset.css">
   <link rel="stylesheet" href="style/main.css">
   <link rel="stylesheet" href="vendor/awesomeplete/awesomplete.css">
-  <title>ravcha.mo - თქვენი საკვები პორტალი!</title>
+  <title>ravcha.mo?</title>
 </head>
 <body>
 <div id="header">head tavi</div>
