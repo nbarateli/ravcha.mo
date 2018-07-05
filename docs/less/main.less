@@ -8,6 +8,8 @@
 @text-light: lightgray;
 @primary-font: Segoe UI;
 
+@image_height: 45px;
+
 html {
   height: 100%;
   font-family: @primary-font;
@@ -112,13 +114,30 @@ body > * {
 }
 
 .result {
-
   position: relative;
   display: flow;
   padding: 10px;
   margin-bottom: 5px;
   cursor: pointer;
   border: 1px black solid;
+}
+
+.result > * {
+  vertical-align: middle;
+}
+
+.meal-image {
+  height: @image_height;
+}
+
+.result:hover {
+  background: @primary;
+}
+
+.meal-name {
+  padding-right: 10px;
+  margin-right: 10px;
+  border-right: 1px solid white;
 }
 
 *::-webkit-scrollbar {

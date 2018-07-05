@@ -77,11 +77,9 @@ body > * {
 #container > * {
   margin-bottom: 25px;
 }
-
 #results {
   overflow-y: auto;
 }
-
 .result {
   position: relative;
   display: flow;
@@ -91,10 +89,26 @@ body > * {
   border: 1px black solid;
 }
 
+.result > * {
+  vertical-align: middle;
+}
+
+.meal-image {
+  height: 45px;
+}
+
+.result:hover {
+  background: #004d40;
+}
+
+.meal-name {
+  padding-right: 10px;
+  margin-right: 10px;
+  border-right: 1px solid white;
+}
 *::-webkit-scrollbar {
   opacity: 80%;
 }
-
 #ingredient-list {
   overflow-y: auto;
 }

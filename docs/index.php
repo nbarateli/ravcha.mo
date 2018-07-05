@@ -44,9 +44,8 @@
     <div id="results">
         <?php for ($i = 0; $i < 20; $i++) { ?>
           <div class="result">
-            <img src="favicon.png">
-            <span>ჩაქაფული სოკოთი</span> |
-            <span>საჭირო ინგრედიენტთა რაოდენობა: 5</span>
+            <img class='meal-image' src="favicon.png">
+            <span class="meal-name">ჩაქაფული სოკოთი</span><span class="meal-ingredient-count">საჭირო ინგრედიენტთა რაოდენობა: 5</span>
           </div>
         <?php } ?>
     </div>
