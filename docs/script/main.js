@@ -27,30 +27,22 @@ function ready() {
 document.addEventListener('DOMContentLoaded', ready);
 
 function parseData(url, parse, nextStep) {
-    fetch(url,
-        {
-            headers: {
-                "Content-type": "application/json; charset=UTF-8"
-                , 'Accept': 'application/json'
-            }
-        }
-    ).then(
-        response => {
-            if (response.status !== 200) {
-                console.log('Looks like there was a problem. Status Code: ' +
-                    response.status);
-                return;
-            }
-
+    ajax(url, () => {
             if (parse instanceof Function)
-                response.json().then(data => {
-                    parse(data);
-                    if (nextStep instanceof Function) nextStep()
-                });
-
+                parse(data);
+            if (nextStep instanceof Function)
+                nextStep()
         }
-    ).catch(function (err) {
-        console.log('Fetch Error :-S', err);
-        if (nextStep instanceof Function) nextStep()
-    });
+    )
+}
+
+function ajax(url, parse) {
+    let xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function () {
+        if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
+            if (parse instanceof Function) parse(xmlHttp.responseText)
+        }
+    }
+    xmlHttp.open("post", url);
+    xmlHttp.send();
 }
