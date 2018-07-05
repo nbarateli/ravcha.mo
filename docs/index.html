@@ -9,7 +9,10 @@
   <link rel="stylesheet" href="style/reset.css">
   <link rel="stylesheet" href="style/main.css">
   <link rel="stylesheet" href="vendor/awesomeplete/awesomplete.css">
+  <link rel="shortcut icon" type="image/png" href="favicon.png">
+
   <title>ravcha.mo?</title>
+
 </head>
 <body>
 <div id="header">head tavi</div>
