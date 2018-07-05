@@ -20,7 +20,7 @@
   <div id="container">
     <form id="ingredients">
       <div id="ingredient-list">
-          <?php for ($i = 0; $i < 5; $i++) { ?>
+          <?php for ($i = 0; $i < 3; $i++) { ?>
             <div class="ingredient">
               <label>
                 <small>დასახელება</small>
