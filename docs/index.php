@@ -8,6 +8,7 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style/reset.css">
   <link rel="stylesheet" href="style/main.css">
+  <link rel="stylesheet" href="vendor/awesomeplete/awesomplete.css">
   <title>ravcha.mo - თქვენი საკვები პორტალი!</title>
 </head>
 <body>
@@ -20,7 +21,7 @@
             <div class="ingredient">
               <label>
                 <small>დასახელება</small>
-                <input name="ingredient_name" autocomplete="off">
+                <input class="ingredient-name" name="ingredient_name" autocomplete="off">
               </label>
               <label>რაოდენობა
                 <input name="ingredient_quantity" type="number">
@@ -37,13 +38,12 @@
       <input type="submit" value="ძებნა">
     </form>
     <div id="results">
-      magari sajmeliii
+
     </div>
   </div>
 </div>
 <div id="footer"></div>
-
-
-<script src="script/main.js"></script>
+<script src="vendor/awesomeplete/awesomplete.min.js" async></script>
+<script src="script/main.js" async></script>
 </body>
 </html>

@@ -1,3 +1,5 @@
+let list = [];
+var awesomes = [];
 const FIELD_MARKUP = "<label>\n" +
     "            <small>დასახელება</small>\n" +
     "            <input autocomplete=\"off\">\n" +
@@ -20,11 +22,31 @@ function addField(e) {
     ingredients.appendChild(ingredient);
 }
 
-function ready() {
-    document.getElementById('add_field').addEventListener('click', addField)
+function toList(data) {
+    data = JSON.parse(data);
+    let result = [];
+    for (let i in data) result.push(data[i]['name'])
+    return result;
 }
 
-document.addEventListener('DOMContentLoaded', ready);
+function autoComplete(list) {
+    let inputs = document.getElementsByClassName('ingredient-name');
+    console.log(list)
+    for (let i = 0; i < inputs.length; i++)
+        awesomes.push(new Awesomplete(inputs[i], {list: list}));
+
+}
+
+function ready() {
+    console.log('aa')
+    document.getElementById('add_field').addEventListener('click', addField)
+    ajax('database/items.json', data => {
+        list = toList(data);
+        autoComplete(list);
+    })
+
+}
+
 
 function parseData(url, parse, nextStep) {
     ajax(url, () => {
@@ -45,4 +67,20 @@ function ajax(url, parse) {
     }
     xmlHttp.open("post", url);
     xmlHttp.send();
+}
+
+function source(term, suggest) {
+    term = term.toLowerCase();
+    var choices = ['ActionScript', 'AppleScript', 'Asp'];
+    var matches = [];
+    for (i = 0; i < choices.length; i++)
+        if (~choices[i].toLowerCase().indexOf(term)) matches.push(choices[i]);
+    suggest(matches);
+}
+
+
+if (document.readyState === "complete") ready()
+else {
+    document.addEventListener('DOMContentLoaded', ready);
+    ready()
 }
