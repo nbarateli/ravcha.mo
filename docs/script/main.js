@@ -1,10 +1,6 @@
 let list = [];
 var awesomes = [];
 const chosenIngredients = new Set();
-const FIELD_MARKUP = "<div class=\"ingredient\">\n" +
-    "              <input class=\"ingredient-n\" placeholder=\"ინგრედიენტის დასახელება\" name=\"ingredient_name\" data-id=-1\n" +
-    "                     autocomplete=\"off\">\n" +
-    "            </div>"
 
 function mustache(id) {
     let tmp = document.getElementById('ingredient-template').innerHTML;
@@ -19,31 +15,25 @@ function ingredientSelected(e) {
 }
 
 function addAwesome(input) {
-    awesomes.push(new Awesomplete(input, {
-            list: list,
+    let awesome = new Awesomplete(input, {
+        list: list,
         data: item => ({label: item.name, value: item}),
-        minChars: 1
-        })
-    );
+        minChars: 0
+    });
+    awesomes.push(awesome);
     input.addEventListener('awesomplete-selectcomplete', ingredientSelected)
-}
-
-function addField(e) {
-    e.preventDefault();
-    let ingredients = document.getElementById('ingredient-list')
-    let ingredient = document.createElement('div');
-    ingredient.classList.add('ingredient');
-    ingredient.innerHTML = FIELD_MARKUP;
-    let input = ingredient.getElementsByClassName('ingredient-n')[0];
-    ingredients.appendChild(ingredient);
-    addAwesome(input)
-}
-
-function toList(data) {
-    data = JSON.parse(data);
-    let result = [];
-    for (let i in data) result.push(data[i]['name'])
-    return result;
+    input.addEventListener('click', () => {
+        if (awesome.ul.childNodes.length === 0) {
+            awesome.minChars = 0;
+            awesome.evaluate();
+        }
+        else if (awesome.ul.hasAttribute('hidden')) {
+            awesome.open();
+        }
+        else {
+            awesome.close();
+        }
+    })
 }
 
 function removeIngredient(e) {
@@ -67,7 +57,7 @@ function parseIngredient(item) {
 
 }
 
-function autoComplete(list) {
+function autoComplete() {
     let inputs = document.getElementsByClassName('ingredient-n');
     for (let i = 0; i < inputs.length; i++) {
         addAwesome(inputs[i])
