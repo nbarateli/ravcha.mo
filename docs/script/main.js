@@ -167,7 +167,7 @@ function autoComplete() {
 
 function submit() {
     document.getElementById('results').innerHTML = "";
-    var isStrict = document.getElementById('strict-match').checked;
+    var isStrict = true; //document.getElementById('strict-match').checked;
 
     var _loop = function _loop(i) {
         recipes[i].ingredientCount = 0;
@@ -184,12 +184,17 @@ function submit() {
         _loop(i);
     }
     var sorted = recipes.slice();
+
     sorted.sort(function (a, b) {
-        return b.ingredientCount - a.ingredientCount;
+        if (a.flag && b.flag) {
+            return b.ingredientCount - a.ingredientCount;
+        }
+        return a.flag - b.flag;
     });
+
     for (var i = 0; i < recipes.length; i++) {
-        if (sorted[i].ingredientCount === 0) break;
-        if (!sorted[i].flag) renderRecipe(sorted[i]);
+        if (sorted[i].ingredientCount === 0) continue;
+        renderRecipe(sorted[i]);
     }
 }
 
@@ -233,7 +238,7 @@ function ready() {
         e.preventDefault();
         submit();
     });
-    document.getElementById('strict-match').addEventListener('change', submit);
+    // document.getElementById('strict-match').addEventListener('change', submit)
     setupModal();
 }
 

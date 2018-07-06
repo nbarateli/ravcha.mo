@@ -164,7 +164,7 @@ function autoComplete() {
 
 function submit() {
     document.getElementById('results').innerHTML = "";
-    let isStrict = document.getElementById('strict-match').checked;
+    let isStrict = true;//document.getElementById('strict-match').checked;
     for (let i = 0; i < recipes.length; i++) {
         recipes[i].ingredientCount = 0;
         recipes[i].flag = false;
@@ -178,10 +178,17 @@ function submit() {
 
     }
     let sorted = recipes.slice();
-    sorted.sort((a, b) => b.ingredientCount - a.ingredientCount)
+
+    sorted.sort((a, b) => {
+        if (a.flag && b.flag) {
+            return b.ingredientCount - a.ingredientCount;
+        }
+        return a.flag - b.flag;
+    })
+
     for (let i = 0; i < recipes.length; i++) {
-        if (sorted[i].ingredientCount === 0) break;
-        if (!sorted[i].flag) renderRecipe(sorted[i])
+        if (sorted[i].ingredientCount === 0) continue;
+        renderRecipe(sorted[i])
     }
 }
 
@@ -223,7 +230,7 @@ function ready() {
         e.preventDefault();
         submit();
     });
-    document.getElementById('strict-match').addEventListener('change', submit)
+    // document.getElementById('strict-match').addEventListener('change', submit)
     setupModal();
 
 }
