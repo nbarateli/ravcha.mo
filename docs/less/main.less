@@ -61,7 +61,18 @@ body > * {
   box-sizing: border-box;
 }
 
-.ingredient-n, .awesomplete {
+.awesomplete {
+  @media only screen and (max-width: 750px) {
+    width: 100%;
+  }
+  @media only screen and (min-width: 750px) {
+    left: 25%;
+    width: 50%;
+  }
+
+}
+
+.ingredient-n {
   width: 100%;
 }
 
@@ -86,10 +97,6 @@ body > * {
 
 #ingredients input[type=submit] {
   display: block;
-}
-
-#ingredients input[type="number"] {
-  width: @number_input_width;
 }
 
 .ingredient > * {
