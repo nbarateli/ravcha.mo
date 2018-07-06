@@ -158,11 +158,17 @@ function autoComplete() {
 
 function submit() {
     document.getElementById('results').innerHTML = "";
+    let isStrict = document.getElementById('strict-match').checked;
     for (let i = 0; i < recipes.length; i++) {
         recipes[i].ingredientCount = 0;
         chosenIngredients.forEach(el => {
+
             if (recipes[i].ingredients[el] !== undefined)
                 recipes[i].ingredientCount++
+            else if (isStrict) {
+                recipes[i].ingredientCount = 0;
+                return false;
+            }
         })
     }
     let sorted = recipes.slice();
@@ -217,7 +223,7 @@ function ready() {
         e.preventDefault();
         submit();
     });
-
+    document.getElementById('strict-match').addEventListener('change', submit)
     setupModal();
 
 }
