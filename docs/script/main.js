@@ -161,21 +161,21 @@ function submit() {
     let isStrict = document.getElementById('strict-match').checked;
     for (let i = 0; i < recipes.length; i++) {
         recipes[i].ingredientCount = 0;
+        recipes[i].flag = false;
         chosenIngredients.forEach(el => {
-
+            if (isStrict && recipes[i].ingredients[el] === undefined) {
+                recipes[i].flag = true;
+            }
             if (recipes[i].ingredients[el] !== undefined)
                 recipes[i].ingredientCount++
-            else if (isStrict) {
-                recipes[i].ingredientCount = 0;
-                return false;
-            }
         })
+
     }
     let sorted = recipes.slice();
     sorted.sort((a, b) => b.ingredientCount - a.ingredientCount)
     for (let i = 0; i < recipes.length; i++) {
         if (sorted[i].ingredientCount === 0) break;
-        renderRecipe(sorted[i])
+        if (!sorted[i].flag) renderRecipe(sorted[i])
     }
 }
 
@@ -216,6 +216,7 @@ function ready() {
             recipes[i].ingredientCount = 0;
             recipes[i].id = i;
             recipes[i].recipe = text2HTML(recipes[i].recipe);
+            recipes[i].flag = false;
             // renderRecipe(recipes[i])
         }
     });
