@@ -187,15 +187,10 @@ function submit() {
 
 function setupModal() {
     // Get the modal
-    var modal = document.getElementById('recipe-modal');
+    let modal = document.getElementById('recipe-modal');
 
     // Get the <span> element that oses the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks on the button, open the modal
-    // btn.onclick = function () {
-    //     modal.style.display = "block";
-    // }
+    let span = document.getElementsByClassName("close")[0];
 
     // When the user clicks on <span> (x), close the modal
     span.addEventListener('click', () => modal.classList.add('hidden'));
@@ -222,7 +217,6 @@ function ready() {
             recipes[i].id = i;
             recipes[i].recipe = text2HTML(recipes[i].recipe);
             recipes[i].flag = false;
-
         }
     });
     document.getElementById('ingredients').addEventListener('submit', e => {
