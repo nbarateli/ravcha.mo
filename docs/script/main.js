@@ -161,7 +161,7 @@ function submit(e) {
     recipes.sort((a, b) => b.ingredientCount - a.ingredientCount)
     for (let i = 0; i < recipes.length; i++) {
         if (recipes[i].ingredientCount === 0) break;
-        renderRecipe(i)
+        // renderRecipe(i)
     }
 }
 
