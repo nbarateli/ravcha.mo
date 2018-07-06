@@ -231,8 +231,12 @@ body > * {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  min-width: 40%;
-  max-width: 60%; /* Could be more or less, depending on screen size */
+  @media only screen and(max-width: 770px) {
+    width: 90%;
+  }
+  @media only screen and(min-width: 770px) {
+    width: 90%;
+  }
 }
 
 .hidden {
