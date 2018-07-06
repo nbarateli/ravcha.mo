@@ -218,12 +218,11 @@ function ready() {
     ajax('database/recipes.json', data => {
         recipes = JSON.parse(data);
         for (let i = 0; i < recipes.length; i++) {
-            recipes[i].ingredients = JSON.parse(recipes[i].ingredients);
             recipes[i].ingredientCount = 0;
             recipes[i].id = i;
             recipes[i].recipe = text2HTML(recipes[i].recipe);
             recipes[i].flag = false;
-            // renderRecipe(recipes[i])
+
         }
     });
     document.getElementById('ingredients').addEventListener('submit', e => {
