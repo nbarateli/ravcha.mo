@@ -1,7 +1,3 @@
-<!--
-  A script to easily render the main html file.
-  Usage: (in your command line) php index.php > index.html
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,14 +22,7 @@
       <input type="submit" value="ძებნა">
     </form>
     <div id="results">
-        <?php for ($i = 0; $i < 20; $i++) { ?>
-          <div class="result">
-            <img class='meal-image' src="favicon.png">
-            <span class="meal-name">ჩაქაფული სოკოთი</span><span class="meal-ingredient-count">საჭირო ინგრედიენტთა რაოდენობა: 5</span>
-          </div>
-        <?php } ?>
     </div>
-
   </div>
 </div>
 <div id="footer"></div>
@@ -41,12 +30,12 @@
   <input type="hidden" name="id" value="{{id}}">
   <span class="ingredient-name">{{name}}</span>
   <span><a class="delete-ingredient">x</a></span>
-
 </script>
 <script type="mustache/x-tmpl" id="recipe-template" charset="UTF-8">
-  <img class='meal-image' src="favicon.png">
-  <span class="meal-name">ჩაქაფული სოკოთი</span><span
-          class="meal-ingredient-count">საჭირო ინგრედიენტთა რაოდენობა: 5</span>
+  <input type="hidden" value="{{id}}">
+  <img class='meal-image' src="{{image}}">
+  <span class="meal-name">{{name}}</span>
+  <span class="meal-ingredient-count">საჭირო ინგრედიენტთა რაოდენობა: {{ingredientCount}}</span>
 </script>
 
 <script src="vendor/awesomeplete/awesomplete.min.js" async></script>
