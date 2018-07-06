@@ -33,7 +33,7 @@ function renderMustache(item, templateId) {
 function addIngredients(ls, recipe) {
     for (let i in recipe.ingredients) {
         let li = document.createElement('li');
-        li.innerText = list[i].name + " " + recipe.ingredients[i];
+        li.innerText = list[i].name + ": " + recipe.ingredients[i];
         ls.appendChild(li);
     }
 }
@@ -66,7 +66,6 @@ function remove(a, i) {
 }
 
 function ingredientSelected(e) {
-
     e.target.value = ""
     parseIngredient(e.text.value);
 }

@@ -104,7 +104,7 @@ body > * {
   grid-column-start: 2;
   grid-column-end: 3;
   grid-template-areas: 'ingredients' 'results';
-  grid-template-rows: auto auto;
+  grid-template-rows: 30% auto;
   overflow-y: scroll;
 }
 
@@ -168,7 +168,7 @@ body > * {
 .delete-ingredient {
   width: 50%;
   height: 50%;
-  border: 1px solid white;
+  border: 1px; //solid white;
   border-radius: 100%;
   padding: 0 5px 2px 5px;
   color: white;
@@ -177,6 +177,7 @@ body > * {
 
 .delete-ingredient:hover {
   background-color: lightblue;
+  color: darkred;
 }
 
 /* The Modal (background) */
@@ -196,7 +197,7 @@ body > * {
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
+  background-color: @light;
   margin: 5% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
@@ -228,6 +229,8 @@ body > * {
 }
 
 .recipe-title {
+  text-decoration: none;
+  color: @text-light darker;
   text-align: center;
 }
 
@@ -237,7 +240,7 @@ body > * {
 
 .recipe-content ul {
   font-size: 10pt;
-  color: gray;
+  color: @text-light;
 }
 
 .recipe-image {
