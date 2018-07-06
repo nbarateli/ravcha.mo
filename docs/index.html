@@ -14,8 +14,11 @@
 <div id="main">
   <div id="container">
     <form id="ingredients">
-      <input class="ingredient-n" placeholder="ინგრედიენტის დასახელება" name="ingredient_name" data-id=-1
-             autocomplete="off">
+      <div id="match"><input type="checkbox" id="strict-match"><label for="strict-match">მხოლოდ ზუსტი დამთხვევა</label>
+
+        <input class="ingredient-n" placeholder="ინგრედიენტის დასახელება" name="ingredient_name" data-id=-1
+               autocomplete="off">
+      </div>
       <div id="ingredient-list">
       </div>
       <!--<input type="submit" value="ძებნა">-->
