@@ -49,7 +49,6 @@ body > * {
   border-radius: 4px;
   box-sizing: border-box;
 }
-
 .awesomplete {
   padding-top: 15px;
 }
@@ -113,7 +112,10 @@ body > * {
   padding: 10px;
   margin-bottom: 5px;
   cursor: pointer;
-  border: 1px black solid;
+  background-color: lightgray;
+  color: #00251a;
+  font-weight: 700;
+  border-radius: 21px;
 }
 .result > * {
   vertical-align: middle;
@@ -123,11 +125,12 @@ body > * {
 }
 .result:hover {
   background: #004d40;
+  color: lightgray;
 }
 .meal-name {
   padding-right: 10px;
   margin-right: 10px;
-  border-right: 1px solid white;
+  border-right: 1px solid #00251a;
 }
 ::-webkit-scrollbar {
   display: none;
@@ -225,6 +228,7 @@ body > * {
 }
 .recipe-text {
   font-size: 11pt;
+  line-height: 24px;
 }
 .recipe-content ul {
   font-size: 10pt;
