@@ -3,11 +3,18 @@ let workingList;
 let awesome;
 const chosenIngredients = new Set();
 
-function mustache(id) {
-    let tmp = document.getElementById('ingredient-template').innerHTML;
+function renderMustache(item, templateId) {
+    let tmp = document.getElementById(templateId).innerHTML;
     Mustache.parse(tmp);
-    let item = list[id];
     return Mustache.render(tmp, item);
+}
+
+function renderRecipe(id) {
+    let html = renderMustache(recipes[id], 'recipe-template');
+    let recipe = document.createElement('div');
+    recipe.classList.add('result');
+    recipe.innerHTML = html;
+    document.getElementById('results').append(recipe)
 }
 
 function remove(a, i) {
@@ -86,7 +93,7 @@ function removeIngredient(e) {
 function parseIngredient(item) {
     if (!chosenIngredients.has(item.id)) {
         chosenIngredients.add(item.id);
-        let html = mustache(item.id);
+        let html = renderMustache(item, 'ingredient-template');
         let ingredient = document.createElement('div');
         ingredient.innerHTML = html;
         ingredient.classList.add('ingredient');
@@ -120,9 +127,10 @@ function ready() {
     ajax('database/recipes.json', data => {
         recipes = JSON.parse(data);
         for (let i = 0; i < recipes.length; i++) {
-            // recipes[i].ingredients = JSON.parse(recipes[i].ingredients);
+            recipes[i].ingredients = JSON.parse(recipes[i].ingredients);
+            recipes[i].ingredientCount = 0;
+            renderRecipe(i)
         }
-        console.log(recipes)
     });
     document.getElementById('ingredients').addEventListener('submit', submit);
 }
