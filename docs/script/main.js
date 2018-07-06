@@ -142,7 +142,7 @@ function ready() {
         for (let i = 0; i < recipes.length; i++) {
             recipes[i].ingredients = JSON.parse(recipes[i].ingredients);
             recipes[i].ingredientCount = 0;
-            renderRecipe(i)
+            // renderRecipe(i)
         }
     });
     document.getElementById('ingredients').addEventListener('submit', submit);
