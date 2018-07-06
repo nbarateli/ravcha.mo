@@ -201,7 +201,7 @@ function ready() {
             recipes[i].ingredientCount = 0;
             recipes[i].id = i;
             recipes[i].recipe = text2HTML(recipes[i].recipe);
-            renderRecipe(i)
+            // renderRecipe(i)
         }
     });
     document.getElementById('ingredients').addEventListener('submit', submit);
