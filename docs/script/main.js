@@ -115,6 +115,19 @@ function autoComplete() {
 
 function submit(e) {
     e.preventDefault();
+    document.getElementById('results').innerHTML = "";
+    for (let i = 0; i < recipes.length; i++) {
+        recipes[i].ingredientCount = 0;
+        chosenIngredients.forEach(el => {
+            if (recipes[i].ingredients[el] !== undefined)
+                recipes[i].ingredientCount++
+        })
+    }
+    recipes.sort((a, b) => b.ingredientCount - a.ingredientCount)
+    for (let i = 0; i < recipes.length; i++) {
+        if (recipes[i].ingredientCount === 0) break;
+        renderRecipe(i)
+    }
 }
 
 function ready() {
