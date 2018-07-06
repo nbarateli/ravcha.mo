@@ -33,7 +33,8 @@ body > * {
   color: white;
   border-top: 1px solid black;
 }
-#ingredients .ingredient-name,
+
+#ingredients .ingredient-n,
 #ingredients input[type=number],
 #ingredients select,
 #ingredients button,
@@ -45,7 +46,8 @@ body > * {
   border-radius: 4px;
   box-sizing: border-box;
 }
-.ingredient-name,
+
+.ingredient-n,
 .awesomplete {
   width: 100%;
 }
@@ -79,7 +81,7 @@ body > * {
   grid-column-start: 2;
   grid-column-end: 3;
   grid-template-areas: 'ingredients' 'results';
-  grid-template-rows: 45% auto;
+  grid-template-rows: auto auto;
   overflow-y: scroll;
 }
 #results {
@@ -112,7 +114,38 @@ body > * {
   display: none;
 }
 #ingredient-list {
-  height: 70%;
   overflow-y: scroll;
   overflow-x: hidden;
 }
+
+.ingredient {
+  padding: 6px 5px 6px 10px;
+  margin: 4px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  cursor: pointer;
+  background-color: #005f63;
+}
+
+.ingredient > * {
+  vertical-align: middle;
+  margin: 2px 0 2px 0;
+  display: inline-block;
+}
+
+.delete-ingredient {
+  width: 50%;
+  height: 50%;
+  border: 1px solid white;
+  border-radius: 100%;
+  padding: 0 5px 2px 5px;
+  color: white;
+}
+
+.delete-ingredient:hover {
+  background-color: lightblue;
+}
+
+/*# sourceMappingURL=main.css.map */

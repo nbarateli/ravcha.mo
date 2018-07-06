@@ -1,7 +1,7 @@
 let list = [];
 var awesomes = [];
 const FIELD_MARKUP = "<div class=\"ingredient\">\n" +
-    "              <input class=\"ingredient-name\" placeholder=\"ინგრედიენტის დასახელება\" name=\"ingredient_name\" data-id=-1\n" +
+    "              <input class=\"ingredient-n\" placeholder=\"ინგრედიენტის დასახელება\" name=\"ingredient_name\" data-id=-1\n" +
     "                     autocomplete=\"off\">\n" +
     "            </div>"
 
@@ -19,7 +19,7 @@ function addField(e) {
     let ingredient = document.createElement('div');
     ingredient.classList.add('ingredient');
     ingredient.innerHTML = FIELD_MARKUP;
-    let input = ingredient.getElementsByClassName('ingredient-name')[0];
+    let input = ingredient.getElementsByClassName('ingredient-n')[0];
     ingredients.appendChild(ingredient);
     addAwesome(input)
 }
@@ -38,7 +38,7 @@ function parseIngredient(item) {
 }
 
 function autoComplete(list) {
-    let inputs = document.getElementsByClassName('ingredient-name');
+    let inputs = document.getElementsByClassName('ingredient-n');
     for (let i = 0; i < inputs.length; i++) {
         addAwesome(inputs[i])
     }

@@ -18,13 +18,14 @@
 <div id="main">
   <div id="container">
     <form id="ingredients">
+      <input class="ingredient-n" placeholder="ინგრედიენტის დასახელება" name="ingredient_name" data-id=-1
+             autocomplete="off">
+
       <div id="ingredient-list">
-          <?php for ($i = 0; $i < 3; $i++) { ?>
-            <div class="ingredient">
-              <input class="ingredient-name" placeholder="ინგრედიენტის დასახელება" name="ingredient_name" data-id=-1
-                     autocomplete="off">
-            </div>
-          <?php } ?>
+        <div class="ingredient">
+          <span class="ingredient-name">ხახვი</span>
+          <span><a class="delete-ingredient">x</a></span>
+        </div>
       </div>
 
       <button id="add_field">+</button>
