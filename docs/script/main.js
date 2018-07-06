@@ -76,7 +76,7 @@ function ready() {
     ajax('database/items.json', data => {
         list = JSON.parse(data);
         autoComplete(list);
-        for (let i = 0; i < list.length; i++) parseIngredient(list[i])
+        // for (let i = 0; i < list.length; i++) parseIngredient(list[i])
     })
     document.getElementById('ingredients').addEventListener('submit', submit);
 }
