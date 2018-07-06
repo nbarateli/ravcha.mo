@@ -156,8 +156,8 @@ function autoComplete() {
     addAwesome(inputs[0])
 }
 
-function submit() {
-    //e.preventDefault();
+function submit(e) {
+    e.preventDefault();
     document.getElementById('results').innerHTML = "";
     for (let i = 0; i < recipes.length; i++) {
         recipes[i].ingredientCount = 0;
