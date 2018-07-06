@@ -197,10 +197,11 @@ body > * {
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 5% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  min-width: 40%;
+  max-width: 60%; /* Could be more or less, depending on screen size */
 }
 
 .hidden {
@@ -231,5 +232,14 @@ body > * {
 }
 
 .recipe-text {
+  font-size: 11pt;
+}
+
+.recipe-content ul {
   font-size: 10pt;
+  color: gray;
+}
+
+.recipe-image {
+  max-width: 90%;
 }

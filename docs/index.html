@@ -10,7 +10,7 @@
   <title>ravcha.mo?</title>
 </head>
 <body>
-<div id="header">head tavi</div>
+<div id="header">ravcha.mo</div>
 <div id="main">
   <div id="container">
     <form id="ingredients">
@@ -18,7 +18,7 @@
              autocomplete="off">
       <div id="ingredient-list">
       </div>
-      <input type="submit" value="ძებნა">
+      <!--<input type="submit" value="ძებნა">-->
     </form>
     <div id="results">
     </div>
@@ -37,6 +37,9 @@
   <span class="meal-ingredient-count">საჭირო ინგრედიენტთა რაოდენობა: {{ingredientCount}}</span>
 </script>
 
+<script type="mustache/x-tmpl" id="recipe-ingredient-template" charset="UTF-8">
+  <p>{{title}}</p>
+</script>
 <script type="mustache/x-tmpl" id="recipe-full-template" charset="UTF-8">
   <a href="{{url}}"><p class="recipe-title">{{name}}</p></a>
   <img src="{{image}}" class="recipe-image">

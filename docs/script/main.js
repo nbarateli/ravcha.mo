@@ -30,6 +30,14 @@ function renderMustache(item, templateId) {
     return Mustache.render(tmp, item);
 }
 
+function addIngredients(ls, recipe) {
+    for (let i in recipe.ingredients) {
+        let li = document.createElement('li');
+        li.innerText = list[i].name + " " + recipe.ingredients[i];
+        ls.appendChild(li);
+    }
+}
+
 function showModal(e) {
     let target = e.target;
     while (!target.classList.contains('result')) {
@@ -37,14 +45,13 @@ function showModal(e) {
     }
     let id = target.getElementsByTagName('input')[0].value;
     let modal = document.getElementById('recipe-modal');
-    modal.classList.toggle('hidden')
     let content = modal.getElementsByClassName('recipe-content')[0];
     content.innerHTML = renderMustache(recipes[id], 'recipe-full-template');
+    addIngredients(content.getElementsByTagName('ul')[0], recipes[id]);
+    modal.classList.toggle('hidden')
 }
 
 function renderRecipe(rec) {
-    // console.log(id)
-    console.log(rec)
     let html = renderMustache(rec, 'recipe-template');
     let recipe = document.createElement('div');
     recipe.classList.add('result');
@@ -123,7 +130,7 @@ function removeIngredient(e) {
     ingredient.remove();
     awesome.evaluate();
     awesome.close()
-
+    submit()
 }
 
 function parseIngredient(item) {
@@ -142,6 +149,7 @@ function parseIngredient(item) {
         awesome.list = workingList;
     }
     awesome.close();
+    submit()
 }
 
 function autoComplete() {
@@ -149,8 +157,8 @@ function autoComplete() {
     addAwesome(inputs[0])
 }
 
-function submit(e) {
-    e.preventDefault();
+function submit() {
+    //e.preventDefault();
     document.getElementById('results').innerHTML = "";
     for (let i = 0; i < recipes.length; i++) {
         recipes[i].ingredientCount = 0;
