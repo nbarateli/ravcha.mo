@@ -209,7 +209,8 @@ body > * {
 }
 .recipe-title {
   text-decoration: none;
-  color: lightgray darker;
+  color: #00251a;
+  font-weight: bolder;
   text-align: center;
 }
 .recipe-text {
