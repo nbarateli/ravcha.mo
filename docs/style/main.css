@@ -121,7 +121,7 @@ body > * {
   vertical-align: middle;
 }
 .meal-image {
-  height: 40px;
+  height: 70px;
 }
 .result:hover {
   background: #004d40;
@@ -198,13 +198,11 @@ body > * {
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
-
 @media only screen and (max-width: 770px) {
   .modal-content {
     width: 90%;
   }
 }
-
 @media only screen and (min-width: 770px) {
   .modal-content {
     width: 90%;
@@ -242,6 +240,11 @@ body > * {
 .recipe-content ul {
   font-size: 10pt;
   color: lightgray;
+}
+
+img {
+  border-radius: 12px;
+  border: 1px solid #00251a;
 }
 .recipe-image {
   max-width: 90%;
