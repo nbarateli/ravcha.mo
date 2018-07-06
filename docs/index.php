@@ -22,10 +22,6 @@
              autocomplete="off">
 
       <div id="ingredient-list">
-        <div class="ingredient">
-          <span class="ingredient-name">ხახვი</span>
-          <span><a class="delete-ingredient">x</a></span>
-        </div>
       </div>
 
       <button id="add_field">+</button>
@@ -43,7 +39,14 @@
   </div>
 </div>
 <div id="footer"></div>
+<script type="mustache/x-tmpl" id="ingredient-template" charset="UTF-8">
+  <input type="hidden" name="id" value="{{id}}">
+  <span class="ingredient-name">{{name}}</span>
+  <span><a class="delete-ingredient">x</a></span>
+</script>
+
 <script src="vendor/awesomeplete/awesomplete.min.js" async></script>
+<script src="vendor/mustache.js" async></script>
 <script src="script/main.js" async></script>
 </body>
 </html>

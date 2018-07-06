@@ -33,7 +33,6 @@ body > * {
   color: white;
   border-top: 1px solid black;
 }
-
 #ingredients .ingredient-n,
 #ingredients input[type=number],
 #ingredients select,
@@ -46,7 +45,6 @@ body > * {
   border-radius: 4px;
   box-sizing: border-box;
 }
-
 .ingredient-n,
 .awesomplete {
   width: 100%;
@@ -113,11 +111,10 @@ body > * {
 ::-webkit-scrollbar {
   display: none;
 }
-#ingredient-list {
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
 
+#ingredient-list > * {
+  margin: 5px 5px;
+}
 .ingredient {
   padding: 6px 5px 6px 10px;
   margin: 4px 0;
@@ -128,13 +125,11 @@ body > * {
   cursor: pointer;
   background-color: #005f63;
 }
-
 .ingredient > * {
   vertical-align: middle;
   margin: 2px 0 2px 0;
   display: inline-block;
 }
-
 .delete-ingredient {
   width: 50%;
   height: 50%;
@@ -143,9 +138,7 @@ body > * {
   padding: 0 5px 2px 5px;
   color: white;
 }
-
 .delete-ingredient:hover {
   background-color: lightblue;
 }
-
 /*# sourceMappingURL=main.css.map */

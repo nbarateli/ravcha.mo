@@ -22,6 +22,8 @@ addItem($items, "კარტოფილი");
 addItem($items, "წიწაკა, წითელი");
 addItem($items, "მარილი");
 addItem($items, "წიწაკა შავი, დაფქვილი");
+addItem($items, "ღორის ხორცი");
+addItem($items, "საქონლის ხორცი");
 
 
 
