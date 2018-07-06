@@ -37,6 +37,24 @@
   <span class="meal-ingredient-count">საჭირო ინგრედიენტთა რაოდენობა: {{ingredientCount}}</span>
 </script>
 
+<script type="mustache/x-tmpl" id="recipe-full-template" charset="UTF-8">
+  <a href="{{url}}"><p class="recipe-title">{{name}}</p></a>
+  <img src="{{image}}" class="recipe-image">
+  <ul class="recipe-ingredients">
+
+  </ul>
+  <div class="recipe-text">{{&recipe}}</div>
+</script>
+
+
+<div id="recipe-modal" class="modal hidden">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class="recipe-content">
+    </div>
+  </div>
+</div>
 <script src="vendor/awesomeplete/awesomplete.min.js" async></script>
 <script src="vendor/mustache.js" async></script>
 <script src="script/main.js" async></script>

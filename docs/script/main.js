@@ -3,10 +3,43 @@ let workingList;
 let awesome;
 const chosenIngredients = new Set();
 
+/*
+ * function: text2HTML.js
+ * Description: Convert plain text to HTML
+ * Author: Geoffrey Bourne @geoffbourne https://github.com/gbourne1
+*/
+function text2HTML(text) {
+    // 1: Plain Text Search
+    text = text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+    // 2: Line Breaks
+    text = text.replace(/\r\n?|\n/g, "<br>");
+
+    // 3: Paragraphs
+    text = text.replace(/<br>\s*<br>/g, "</p><p>");
+
+    // 4: Wrap in Paragraph Tags
+    text = "<p>" + text + "</p>";
+
+    return text;
+}
+
 function renderMustache(item, templateId) {
     let tmp = document.getElementById(templateId).innerHTML;
     Mustache.parse(tmp);
     return Mustache.render(tmp, item);
+}
+
+function showModal(e) {
+    let target = e.target;
+    while (!target.classList.contains('result'))
+        target = target.parentElement;
+
+    let id = target.getElementsByTagName('input')[0].value;
+    let modal = document.getElementById('recipe-modal');
+    modal.classList.remove('hidden')
+    let content = modal.getElementsByClassName('recipe-content')[0];
+    content.innerHTML = renderMustache(recipes[id], 'recipe-full-template');
 }
 
 function renderRecipe(id) {
@@ -14,6 +47,7 @@ function renderRecipe(id) {
     let recipe = document.createElement('div');
     recipe.classList.add('result');
     recipe.innerHTML = html;
+    recipe.addEventListener('click', showModal);
     document.getElementById('results').append(recipe)
 }
 
@@ -130,6 +164,29 @@ function submit(e) {
     }
 }
 
+function setupModal() {
+    // Get the modal
+    var modal = document.getElementById('recipe-modal');
+
+    // Get the <span> element that oses the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on the button, open the modal
+    // btn.onclick = function () {
+    //     modal.style.display = "block";
+    // }
+
+    // When the user clicks on <span> (x), close the modal
+    span.addEventListener('click', () => modal.classList.add('hidden'));
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    }
+}
+
 function ready() {
 
     ajax('database/items.json', data => {
@@ -142,10 +199,15 @@ function ready() {
         for (let i = 0; i < recipes.length; i++) {
             recipes[i].ingredients = JSON.parse(recipes[i].ingredients);
             recipes[i].ingredientCount = 0;
-            // renderRecipe(i)
+            recipes[i].id = i;
+            recipes[i].recipe = text2HTML(recipes[i].recipe);
+            renderRecipe(i)
         }
     });
     document.getElementById('ingredients').addEventListener('submit', submit);
+
+    setupModal();
+
 }
 
 
