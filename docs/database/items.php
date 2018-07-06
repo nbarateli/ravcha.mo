@@ -8,23 +8,26 @@ header('Content-Type: text/html; charset=utf-8');
  * Time: 17:13
  * usage: php items.php > items.json
  */
-$items = [];
-function addItem(&$items, $name)
+class Adder
 {
-    $item = ['id' => count($items), 'name' => $name];
-    array_push($items, $item);
+    public $items = [];
+
+    public function addItem($name)
+    {
+        $item = ['id' => count($this->items), 'name' => $name];
+        array_push($this->items, $item);
+    }
 }
 
-addItem($items, "ხახვი");
-addItem($items, "ნიორი");
-addItem($items, "წიწაკა, მწვანე");
-addItem($items, "კარტოფილი");
-addItem($items, "წიწაკა, წითელი");
-addItem($items, "მარილი");
-addItem($items, "წიწაკა შავი, დაფქვილი");
-addItem($items, "ღორის ხორცი");
-addItem($items, "საქონლის ხორცი");
+$adder = new Adder();
+$adder->addItem("ღორის ხორცი");
+$adder->addItem("საქონლის ხორცი");
+$adder->addItem("ხახვი");
+$adder->addItem("ფქვილი, პურის");
+$adder->addItem("წიწაკა, წითელი, დაფქული");
+$adder->addItem("მარილი");
+$adder->addItem("ძირა");
+$adder->addItem("ძირა");
 
 
-
-echo json_encode($items, JSON_UNESCAPED_UNICODE);
+echo json_encode($adder->items, JSON_UNESCAPED_UNICODE);

@@ -1,4 +1,4 @@
-let list = [];
+let list = [], recipes = [];
 let workingList;
 let awesome;
 const chosenIngredients = new Set();
@@ -116,7 +116,14 @@ function ready() {
         list = JSON.parse(data);
         autoComplete(list);
         // for (let i = 0; i < list.length; i++) parseIngredient(list[i])
-    })
+    });
+    ajax('database/recipes.json', data => {
+        recipes = JSON.parse(data);
+        for (let i = 0; i < recipes.length; i++) {
+            // recipes[i].ingredients = JSON.parse(recipes[i].ingredients);
+        }
+        console.log(recipes)
+    });
     document.getElementById('ingredients').addEventListener('submit', submit);
 }
 

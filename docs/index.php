@@ -43,6 +43,11 @@
   <span><a class="delete-ingredient">x</a></span>
 
 </script>
+<script type="mustache/x-tmpl" id="recipe-template" charset="UTF-8">
+  <img class='meal-image' src="favicon.png">
+  <span class="meal-name">ჩაქაფული სოკოთი</span><span
+          class="meal-ingredient-count">საჭირო ინგრედიენტთა რაოდენობა: 5</span>
+</script>
 
 <script src="vendor/awesomeplete/awesomplete.min.js" async></script>
 <script src="vendor/mustache.js" async></script>

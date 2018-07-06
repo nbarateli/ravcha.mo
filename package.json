@@ -21,6 +21,8 @@
   "homepage": "https://github.com/nbarateli/ravcha.mo#readme",
   "dependencies": {
     "gulp": "^3.9.1",
-    "less": "^3.0.4"
+    "less": "^3.0.4",
+    "xlsx": "^0.13.1",
+    "xmlhttprequest": "^1.8.0"
   }
 }
