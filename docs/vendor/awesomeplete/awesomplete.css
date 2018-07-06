@@ -38,7 +38,7 @@
   margin: .2em 0 0;
   color: black;
   background: hsla(0, 0%, 100%, .9);
-  background: linear-gradient(to bottom right, #39796b, hsla(0, 0%, 100%, .8));
+  /*background: linear-gradient(to bottom right, #39796b, hsla(0, 0%, 100%, .8));*/
   border: 1px solid rgba(0, 0, 0, .3);
   box-shadow: .05em .2em .6em rgba(0, 0, 0, .2);
   text-shadow: none;
