@@ -1,5 +1,6 @@
 let list = [];
-var awesomes = [];
+let workingList;
+let awesome;
 const chosenIngredients = new Set();
 
 function mustache(id) {
@@ -9,18 +10,24 @@ function mustache(id) {
     return Mustache.render(tmp, item);
 }
 
+function remove(a, i) {
+    a[i] = a[a.length - 1];
+    a.pop();
+}
+
 function ingredientSelected(e) {
+
     e.target.value = ""
     parseIngredient(e.text.value);
 }
 
 function addAwesome(input) {
-    let awesome = new Awesomplete(input, {
-        list: list,
+    workingList = list.slice();
+    awesome = new Awesomplete(input, {
+        list: workingList,
         data: item => ({label: item.name, value: item}),
         minChars: 0
     });
-    awesomes.push(awesome);
     input.addEventListener('awesomplete-selectcomplete', ingredientSelected)
     input.addEventListener('click', () => {
         if (awesome.ul.childNodes.length === 0) {
@@ -36,12 +43,44 @@ function addAwesome(input) {
     })
 }
 
+
+function binarySearch(a, el, compFn, s, e,) {
+    if (s === undefined) {
+        s = 0;
+        e = a.length - 1;
+    }
+    const m = Math.floor((s + e) / 2);
+
+    if (m === s || m === e) {
+        return compFn instanceof Function ? compFn(a[m], el) === 0 ? m : ~m : a[m] === el ? m : ~m;
+    }
+    if (compFn instanceof Function) {
+
+        switch (Math.sign(compFn(el, a[m]))) {
+            case 1:
+                return binarySearch(a, el, compFn, m, e);
+            case 0:
+                return m;
+            case -1:
+                return binarySearch(a, el, compFn, s, m);
+        }
+    }
+    if (el === a[m]) return m;
+    if (el > a[m]) return binarySearch(a, el, compFn, m, e);
+    if (el < a[m]) return binarySearch(a, el, compFn, s, m);
+}
+
 function removeIngredient(e) {
-    console.log(e);
+
     let ingredient = e.target.parentElement.parentElement;
     let id = ingredient.children[0].value
-    chosenIngredients.delete(id);
+    chosenIngredients.delete(parseInt(id));
+    workingList.push(list[id])
+    awesome.list = workingList;
     ingredient.remove();
+    awesome.evaluate();
+    awesome.close()
+
 }
 
 function parseIngredient(item) {
@@ -53,16 +92,18 @@ function parseIngredient(item) {
         ingredient.classList.add('ingredient');
         ingredient.children[2].children[0].addEventListener('click', removeIngredient);
         document.getElementById('ingredient-list').append(ingredient);
+        let compFn = (a, b) => a.id - b.id;
+        workingList.sort(compFn);
+        let id = binarySearch(workingList, item, compFn);
+        remove(workingList, id);
+        awesome.list = workingList;
     }
-
+    awesome.close();
 }
 
 function autoComplete() {
     let inputs = document.getElementsByClassName('ingredient-n');
-    for (let i = 0; i < inputs.length; i++) {
-        addAwesome(inputs[i])
-    }
-
+    addAwesome(inputs[0])
 }
 
 function submit(e) {
