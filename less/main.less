@@ -29,6 +29,7 @@ body > * {
 }
 
 #header {
+  padding: 1% 5px 2% 10px;
   font-family: monospace;
   font-weight: 500;
   font-size: 140%;
@@ -63,19 +64,20 @@ body > * {
   box-sizing: border-box;
 }
 
+.awesomplete {
+  padding-top: 15px;
+}
+
 @media only screen and (max-width: 750px) {
-  .awesomplete, #match {
+  .awesomplete {
     width: 100%;
   }
 }
 
 @media only screen and (min-width: 750px) {
-  #match {
-    left: 25%;
-    width: 75%;
-  }
 
   .awesomplete {
+    left: 25%;
     width: 50%;
   }
 }
@@ -87,8 +89,8 @@ body > * {
 }
 
 #ingredients {
+  padding-top: 5%;
   grid-area: ingredients;
-
   margin-bottom: 25px;
 
 }
