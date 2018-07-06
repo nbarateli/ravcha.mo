@@ -31,9 +31,15 @@ function renderMustache(item, templateId) {
 }
 
 function addIngredients(ls, recipe) {
+    console.log(recipe.ingredients)
     for (let i in recipe.ingredients) {
         let li = document.createElement('li');
-        li.innerText = list[i].name + ": " + recipe.ingredients[i];
+        try {
+            li.innerText = list[i].name + ": " + recipe.ingredients[i];
+        }
+        catch (e) {
+            console.log(i)
+        }
         ls.appendChild(li);
     }
 }
