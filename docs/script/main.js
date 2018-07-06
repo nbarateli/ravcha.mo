@@ -32,12 +32,13 @@ function renderMustache(item, templateId) {
 
 function showModal(e) {
     let target = e.target;
-    while (!target.classList.contains('result'))
+    while (!target.classList.contains('result')) {
         target = target.parentElement;
+    }
 
     let id = target.getElementsByTagName('input')[0].value;
     let modal = document.getElementById('recipe-modal');
-    modal.classList.remove('hidden')
+    modal.classList.toggle('hidden')
     let content = modal.getElementsByClassName('recipe-content')[0];
     content.innerHTML = renderMustache(recipes[id], 'recipe-full-template');
 }
@@ -182,7 +183,7 @@ function setupModal() {
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
         if (event.target === modal) {
-            modal.style.display = "none";
+            modal.classList.add('hidden')
         }
     }
 }
