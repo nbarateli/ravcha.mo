@@ -156,8 +156,7 @@ function autoComplete() {
     addAwesome(inputs[0])
 }
 
-function submit(e) {
-    e.preventDefault();
+function submit() {
     document.getElementById('results').innerHTML = "";
     for (let i = 0; i < recipes.length; i++) {
         recipes[i].ingredientCount = 0;
@@ -214,7 +213,10 @@ function ready() {
             // renderRecipe(recipes[i])
         }
     });
-    document.getElementById('ingredients').addEventListener('submit', submit);
+    document.getElementById('ingredients').addEventListener('submit', e => {
+        e.preventDefault();
+        submit();
+    });
 
     setupModal();
 
