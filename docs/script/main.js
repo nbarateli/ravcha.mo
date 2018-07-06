@@ -35,7 +35,6 @@ function showModal(e) {
     while (!target.classList.contains('result')) {
         target = target.parentElement;
     }
-
     let id = target.getElementsByTagName('input')[0].value;
     let modal = document.getElementById('recipe-modal');
     modal.classList.toggle('hidden')
@@ -43,8 +42,10 @@ function showModal(e) {
     content.innerHTML = renderMustache(recipes[id], 'recipe-full-template');
 }
 
-function renderRecipe(id) {
-    let html = renderMustache(recipes[id], 'recipe-template');
+function renderRecipe(rec) {
+    // console.log(id)
+    console.log(rec)
+    let html = renderMustache(rec, 'recipe-template');
     let recipe = document.createElement('div');
     recipe.classList.add('result');
     recipe.innerHTML = html;
@@ -158,10 +159,11 @@ function submit(e) {
                 recipes[i].ingredientCount++
         })
     }
-    recipes.sort((a, b) => b.ingredientCount - a.ingredientCount)
+    let sorted = recipes.slice();
+    sorted.sort((a, b) => b.ingredientCount - a.ingredientCount)
     for (let i = 0; i < recipes.length; i++) {
-        if (recipes[i].ingredientCount === 0) break;
-        // renderRecipe(i)
+        if (sorted[i].ingredientCount === 0) break;
+        renderRecipe(sorted[i])
     }
 }
 
@@ -202,7 +204,7 @@ function ready() {
             recipes[i].ingredientCount = 0;
             recipes[i].id = i;
             recipes[i].recipe = text2HTML(recipes[i].recipe);
-            // renderRecipe(i)
+            // renderRecipe(recipes[i])
         }
     });
     document.getElementById('ingredients').addEventListener('submit', submit);
