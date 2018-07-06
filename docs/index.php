@@ -23,8 +23,6 @@
 
       <div id="ingredient-list">
       </div>
-
-      <button id="add_field">+</button>
       <input type="submit" value="ძებნა">
     </form>
     <div id="results">
@@ -43,6 +41,7 @@
   <input type="hidden" name="id" value="{{id}}">
   <span class="ingredient-name">{{name}}</span>
   <span><a class="delete-ingredient">x</a></span>
+
 </script>
 
 <script src="vendor/awesomeplete/awesomplete.min.js" async></script>

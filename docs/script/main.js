@@ -14,8 +14,7 @@ function mustache(id) {
 }
 
 function ingredientSelected(e) {
-    e.preventDefault();
-    e.target.value = e.text['value']['name'];
+    e.target.value = ""
     parseIngredient(e.text.value);
 }
 
@@ -47,6 +46,14 @@ function toList(data) {
     return result;
 }
 
+function removeIngredient(e) {
+    console.log(e);
+    let ingredient = e.target.parentElement.parentElement;
+    let id = ingredient.children[0].value
+    chosenIngredients.delete(id);
+    ingredient.remove();
+}
+
 function parseIngredient(item) {
     if (!chosenIngredients.has(item.id)) {
         chosenIngredients.add(item.id);
@@ -54,6 +61,7 @@ function parseIngredient(item) {
         let ingredient = document.createElement('div');
         ingredient.innerHTML = html;
         ingredient.classList.add('ingredient');
+        ingredient.children[2].children[0].addEventListener('click', removeIngredient);
         document.getElementById('ingredient-list').append(ingredient);
     }
 
@@ -72,7 +80,7 @@ function submit(e) {
 }
 
 function ready() {
-    document.getElementById('add_field').addEventListener('click', addField)
+
     ajax('database/items.json', data => {
         list = JSON.parse(data);
         autoComplete(list);
