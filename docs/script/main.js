@@ -35,7 +35,7 @@ function addIngredients(ls, recipe) {
     for (let i in recipe.ingredients) {
         let li = document.createElement('li');
         try {
-            li.innerText = list[i].name + ": " + recipe.ingredients[i];
+            li.innerText = list[parseInt(i)].name + ": " + recipe.ingredients[i];
         }
         catch (e) {
             console.log(i)
