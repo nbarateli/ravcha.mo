@@ -5,8 +5,8 @@
 @button-color: #005f63;
 @text-dark: white;
 @text-light: lightgray;
-@primary-font: Segoe UI;
-
+@primary-font: Segoe UI serif;
+@present_color: #b4aa00;
 @image_height: 70px;
 
 html {
@@ -45,6 +45,11 @@ body > * {
   grid-template-columns: 10% auto 10%;
   grid-area: content;
   overflow-y: auto;
+}
+
+.ingredient-present {
+  font-weight: bold;
+  color: @present_color
 }
 
 #footer {

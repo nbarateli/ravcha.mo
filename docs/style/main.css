@@ -1,6 +1,6 @@
 html {
   height: 100%;
-  font-family: Segoe UI;
+  font-family: Segoe UI serif;
 }
 body {
   height: 100%;
@@ -30,6 +30,11 @@ body > * {
   grid-template-columns: 10% auto 10%;
   grid-area: content;
   overflow-y: auto;
+}
+
+.ingredient-present {
+  font-weight: bold;
+  color: #b4aa00;
 }
 #footer {
   grid-area: footer;

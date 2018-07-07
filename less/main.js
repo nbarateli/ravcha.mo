@@ -35,7 +35,10 @@ function addIngredients(ls, recipe) {
     for (let i in recipe.ingredients) {
         let li = document.createElement('li');
         try {
+
             li.innerText = list[parseInt(i)].name + ": " + recipe.ingredients[i];
+            if (chosenIngredients.has(parseInt(i)))
+                li.classList.add('ingredient-present')
         }
         catch (e) {
             console.log(i)
