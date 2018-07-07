@@ -1,0 +1,1 @@
+To launch on your local server type "node node_modules/http-server/bin/http-server .\docs\ -p 80" in your terminal.
