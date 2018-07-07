@@ -34,7 +34,7 @@ function renderMustache(item, templateId) {
 }
 
 function addIngredients(ls, recipe) {
-    console.log(recipe.ingredients);
+
     for (var i in recipe.ingredients) {
         var li = document.createElement('li');
         try {
@@ -42,7 +42,6 @@ function addIngredients(ls, recipe) {
             li.innerText = list[parseInt(i)].name + ": " + recipe.ingredients[i];
             if (chosenIngredients.has(parseInt(i))) li.classList.add('ingredient-present');
         } catch (e) {
-            console.log(i);
         }
         ls.appendChild(li);
     }

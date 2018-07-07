@@ -31,7 +31,6 @@ body > * {
   grid-area: content;
   overflow-y: auto;
 }
-
 .ingredient-present {
   font-weight: bold;
   color: #b4aa00;

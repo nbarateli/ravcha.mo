@@ -31,7 +31,7 @@ function renderMustache(item, templateId) {
 }
 
 function addIngredients(ls, recipe) {
-    console.log(recipe.ingredients)
+
     for (let i in recipe.ingredients) {
         let li = document.createElement('li');
         try {
@@ -41,7 +41,7 @@ function addIngredients(ls, recipe) {
                 li.classList.add('ingredient-present')
         }
         catch (e) {
-            console.log(i)
+
         }
         ls.appendChild(li);
     }
