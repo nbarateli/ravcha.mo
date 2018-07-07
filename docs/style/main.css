@@ -29,7 +29,7 @@ body > * {
   display: grid;
   grid-template-columns: 10% auto 10%;
   grid-area: content;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 #footer {
   grid-area: footer;
@@ -100,7 +100,7 @@ body > * {
   grid-column-end: 3;
   grid-template-areas: 'ingredients' 'results';
   grid-template-rows: 30% auto;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 #results {
   grid-area: results;
@@ -241,7 +241,6 @@ body > * {
   font-size: 10pt;
   color: lightgray;
 }
-
 img {
   border-radius: 12px;
   border: 1px solid #00251a;
